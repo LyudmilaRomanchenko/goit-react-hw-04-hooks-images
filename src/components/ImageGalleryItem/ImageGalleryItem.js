@@ -1,12 +1,23 @@
+import PropTypes from "prop-types";
 import s from "./ImageGalleryItem.module.css";
 
-function ImageGalleryItem({ id, webformatURL }) {
-  console.log(id, webformatURL);
+function ImageGalleryItem({ webformatURL, largeImageURL, onClick }) {
   return (
-    <li key={id} className={s.ImageGalleryItem}>
-      <img src={webformatURL} alt="" className={s.ImageGalleryItemImage} />
-    </li>
+    <img
+      src={webformatURL}
+      alt={largeImageURL}
+      className={s.ImageGalleryItemImage}
+      onClick={onClick}
+    />
   );
 }
 
+ImageGalleryItem.prototype = {
+  webformatURL: PropTypes.string.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
 export default ImageGalleryItem;
+
+//
