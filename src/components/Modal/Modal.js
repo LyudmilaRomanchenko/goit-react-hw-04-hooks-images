@@ -23,10 +23,12 @@ function Modal({ largeImg, onClick }) {
   };
 
   useEffect(() => {
+    console.log(largeImg);
     window.addEventListener("keydown", handleKeyDown);
-  }, []);
+    console.log(largeImg);
 
-  window.removeEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   return createPortal(
     <div className={s.Overlay} onClick={handleBackdrop}>

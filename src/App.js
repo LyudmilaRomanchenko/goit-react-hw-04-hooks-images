@@ -59,6 +59,7 @@ function App() {
 
   const toggleModal = () => {
     setShowModal(!showModal);
+    setLargeImg("");
   };
 
   useEffect(() => {
